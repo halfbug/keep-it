@@ -3,9 +3,23 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  /* animation: App-logo-spin infinite 20s linear;
+  height: 4vmin; */
   pointer-events: none;
+  
+  
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: orange;
+    border-radius: 15%;
+    padding: 3px;
+    margin: 2px;
+    margin-bottom: -3px;
+    box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .3)';
+    
+    
+
 }
 
 .App-header {
