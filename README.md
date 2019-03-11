@@ -1,3 +1,29 @@
+# Git file - tracked states
+To be more precise, the tracked state can be further subdivided into three substates:
+1. modified
+2. staged 
+3. committed 
+
+Our README.md file is in the committed state.
+Git will pay attention to all the tracked files; if we modify any of them (which includes deletions and renames), they will change their state from committed to modified:
+
+$ echo "A very simple user directory API with recommendation engine" >> README.md
+
+$ git status
+
+On branch master
+
+Changes not staged for commit:
+  modified: README.md
+
+Modified files, alongside any untracked files, will be listed when we run git status. Modified files can be committed in the same manner as untracked files:
+### `$ git add README.md`
+### `$ git commit -m "Update README.md"`
+[master 85434b6] Update README.md
+ 1 file changed, 1 insertion(+) You might be wondering why we had to run git add before we ran git commit. git add places the untracked or modified file into what is known as the staging area, which is also known as the index or cache. 
+### `When a file is placed into the staging area, it is in the staged state. When we commit, only changes in the staging area are added to the repository; changes that remain in the workspace are not committed.`
+
+###
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +92,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#The three tracked states
+To be more precise, the tracked state can be further subdivided into three substates: modified, staged, and committed. Our README.md file is in the committed state.
+Git will pay attention to all the tracked files; if we modify any of them (which includes deletions and renames), they will change their state from committed to modified:
+$ echo "A very simple user directory API with recommendation engine" >> README.md
+$ git status
+On branch master
+Changes not staged for commit:
+  modified: README.md
+Modified files, alongside any untracked files, will be listed when we run git status. Modified files can be committed in the same manner as untracked files:
+$ git add README.md
+$ git commit -m "Update README.md"
+[master 85434b6] Update README.md
+ 1 file changed, 1 insertion(+)
+You might be wondering why we had to run git add before we ran git commit. git add places the untracked or modified file into what is known as the staging 
+area, which is also known as the index or cache. When a file is placed into the staging area, it is in the staged state. When we commit, only changes in the staging area are added to the repository; changes that remain in the workspace are not committed.
