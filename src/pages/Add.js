@@ -6,8 +6,8 @@ import  Single from  "../components/Single";
 
 const Add = () => {
   return (
-    <Single>+6+++      -d++
-    Add 
+    <Single>
+    Add Credential
     <span>Add Website and login information here.</span>
       <Form/>
     </Single>
