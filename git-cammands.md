@@ -33,9 +33,9 @@ now the active branch will be the master
 `git add readme.md`
 `git commit -m "text changed" `
 
-# git push to remote
-git push
+## git push to remote
+`git push`
 
-# git pull from remote
-git pull
+## git pull from remote
+`git pull`
 
