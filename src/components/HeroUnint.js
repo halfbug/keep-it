@@ -41,7 +41,7 @@ const HeroUnint = (props) => {
             </Typography> */}
             <Brand component="h1" variant="h2"  align="center" color="textPrimary" />
             <Typography  variant="h6" align="center" color="textSecondary" paragraph>
-              A faster way to keep your all passwords with security. Easy to use and quick to execute.
+              A faster way to keep all yours credentials with security. Easy to use and quick to execute.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">

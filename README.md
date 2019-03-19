@@ -21,7 +21,7 @@ Modified files, alongside any untracked files, will be listed when we run git st
 ### `$ git commit -m "Update README.md"`
 [master 85434b6] Update README.md
  1 file changed, 1 insertion(+) You might be wondering why we had to run git add before we ran git commit. git add places the untracked or modified file into what is known as the staging area, which is also known as the index or cache. 
-### `When a file is placed into the staging area, it is in the staged state. When we commit, only changes in the staging area are added to the repository; changes that remain in the workspace are not committed.`
+# `When a file is placed into the staging area, it is in the staged state. When we commit, only changes in the staging area are added to the repository; changes that remain in the workspace are not committed.`
 
 ###
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
