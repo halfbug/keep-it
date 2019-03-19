@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "domain": "http://wp.apgen.com/login",
+    "username": "admin2",
+    "password": "12345",
+    "detail": "nathing special"
+  },
+  {
+    "id": "2",
+    "domain": "http://newgen.com/login",
+    "username": "admin3",
+    "password": "12345",
+    "detail": "nathing special"
+  },
+  {
+    "id": "3",
+    "domain": "http://somegen.com/login",
+    "username": "admin4",
+    "password": "12345",
+    "detail": "nathing special"
+  }
+]
