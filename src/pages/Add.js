@@ -4,14 +4,41 @@ import Form from '../components/Form';
 
 import  Single from  "../components/Single";
 
-const Add = () => {
+import { connect } from 'react-redux'
+import {addCredential} from '../actions/credentialActions'
+
+class Add extends React.Component {
+
+  addCredential = (credential) => {
+    // e.preventDefault();
+    credential.id = this.props.credentials.length+1
+    console.log(this.props.credentials.length) ;
+    this.props.addCredential(credential);
+    // console.log(this.props.state);
+    this.props.history.push('/Search');
+  }
+  render() {
   return (
     <Single>
     Add Credential
     <span>Add Website and login information here.</span>
-      <Form/>
+      <Form saveCredential={this.addCredential}  />
     </Single>
   )
-}
+}}
 
-export default Add
+
+const mapStateToProps = (state) => {
+ 
+  return {
+    credentials: state.credentials
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addCredential: (data) => dispatch(addCredential(data))
+    }
+  }
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Add)

@@ -29,7 +29,7 @@ const styles = theme => ({
 
 const Brand = (props) => {
     const { classes } = props;
-    console.log (classes);
+    //console.log (classes);
   return (
        
 

@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 // import AccountCircle from '@material-ui/icons/AccountCircle';
-import Icon from '@material-ui/core/Icon';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
+//import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 
 
@@ -32,6 +26,7 @@ const styles = theme => ({
   textField100: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    width:"100%",
     
   },
   dense: {
@@ -63,63 +58,76 @@ const styles = theme => ({
   },
 });
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
 
 class Form extends React.Component {
   state = {
-    name: 'Cat in the Hat',
-    age: '',
+    id: '',
+    domain: '',
+    username: '',
     multiline: 'Controlled',
-    currency: 'EUR',
     password: '',
+    detail: '',
     showPassword : false,
-    multiline: 'Controlled',
+
   };
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
   handleClickShowPassword = () => {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(this.state);
+    this.props.saveCredential(this.state);
+  }
+
+  componentDidMount() {
+    if(this.props.credential){
+       console.log(this.state);
+      console.log(this.props.credential);
+     // const {id,domain,username,password,detail} = this.props.credential
+
+      this.setState(state => ( this.props.credential));
+      // this.setState(state => ({ domain: this.props.credential.domain }));
+    //   // return({id,domain,username,password,detail} = initalstate );
+     
+       
+    //    ));
+     console.log("newState");
+     console.log(this.state);
+     
+    }
+   
+ }
+
   render() {
     const { classes } = this.props;
+    //console.log(this.state);
 
     return (
-      <form className={classes.container}  noValidate autoComplete="off">
-      <div className={classes.full} fullWidth>
-        <Grid container spacing={8} alignItems="flex-end" fullWidth>
+      <form className={classes.container}   onSubmit={this.handleSubmit}>
+      <div className={classes.full} >
+        <Grid container spacing={8}  >
           <Grid item>
-          <Icon className={classes.icon} color="primary" fontSize="large">
+          {/* <Icon className={classes.icon} color="primary" fontSize="large">
         web
-      </Icon>
+      </Icon> */}
           </Grid>
           <Grid item className={classes.full90} >
-            <TextField id="standard-name"
+            <TextField id="domain"
           label="Web Address"
-          variant="filled"
-          fullWidth
+          onChange={this.handleChange}
+          value={this.state.domain}
           className={classes.textField100}
           placeholder="https/:www.somedomain.com/login"
           
-          onChange={this.handleChange('name')}
+          
           margin="normal"
            />
           </Grid>
@@ -127,19 +135,19 @@ class Form extends React.Component {
       </div>
 
       <div className={classes.margin}>
-        <Grid container spacing={8} alignItems="flex-end" >
+        <Grid container spacing={8}  >
           <Grid item>
-          <Icon className={classes.icon} color="primary" fontSize="large">
+          {/* <Icon className={classes.icon} color="primary" fontSize="large">
         person
-      </Icon>
+      </Icon> */}
           </Grid>
           <Grid item>
-            <TextField id="standard-name"
+            <TextField id="username"
           label="User Name"
           className={classes.textField}
           placeholder="admin"
-          variant="filled"
-          onChange={this.handleChange('name')}
+          onChange={this.handleChange}
+          value={this.state.username}
           margin="normal" />
           </Grid>
         </Grid>
@@ -147,22 +155,22 @@ class Form extends React.Component {
 
 
       <div className={classes.margin}>
-        <Grid container spacing={8} alignItems="flex-end" >
+        <Grid container spacing={8}  >
           <Grid item>
-          <Icon className={classes.icon} color="primary" fontSize="large">
+          {/* <Icon className={classes.icon} color="primary" fontSize="large">
         lock
-      </Icon>
+      </Icon> */}
           </Grid>
           <Grid item>
           <TextField
-          id="filled-adornment-password"
+          id="password"
           className={ classes.textField}
-          variant="filled"
+          //
           margin="normal"
           type={this.state.showPassword ? 'text' : 'password'}
           label="Password"
           value={this.state.password}
-          onChange={this.handleChange('password')}
+          onChange={this.handleChange}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -179,34 +187,34 @@ class Form extends React.Component {
           </Grid>
         </Grid>
       </div>
-      <div className={classes.full} fullWidth>
-        <Grid container spacing={8} alignItems="center" fullWidth>
-          <Grid item alignItems="center">
-          <Icon className={classes.icon} color="primary" fontSize="large">
+      <div className={classes.full} >
+        <Grid container spacing={8} >
+          <Grid item >
+          {/* <Icon className={classes.icon} color="primary" fontSize="large">
         view_list
-      </Icon>
+      </Icon> */}
           </Grid>
           <Grid item className={classes.full90} >
           <TextField
-          id="filled-multiline-flexible"
+          id="detail"
           label="Detail"
           multiline
           rowsMax="4"
-          
-          onChange={this.handleChange('multiline')}
+          value={this.state.detail}
+          onChange={this.handleChange}
           className={classes.textField100}
           margin="normal"
-          fullWidth
-          variant="filled"
+          
+          //
         />
           </Grid>
         </Grid>
       </div>
 
-      <div className={classes.full} fullWidth>
-        <Grid container spacing={20} alignItems="flex-end" fullWidth alignItems="center">
+      <div className={classes.full} >
+        <Grid container spacing={24}   alignItems="center">
           <Grid item className={classes.full}>
-          <Button variant="contained" color="primary" align="center" style={{marginTop: '2em'}} >
+          <Button variant="contained" type="submit" color="primary" align="center" id="submit-btn" style={{marginTop: '2em'}} >
           Save
         </Button>
           </Grid>
@@ -214,68 +222,7 @@ class Form extends React.Component {
       </div>
       
 
-        {/* <TextField
-          id="standard-select-currency"
-          select
-          label="Select"
-          className={classes.textField}
-          value={this.state.currency}
-          onChange={this.handleChange('currency')}
-          SelectProps={{
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="Please select your currency"
-          margin="normal"
-        >
-          {currencies.map(option => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          id="standard-select-currency-native"
-          select
-          label="Native select"
-          className={classes.textField}
-          value={this.state.currency}
-          onChange={this.handleChange('currency')}
-          SelectProps={{
-            native: true,
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-          helperText="Please select your currency"
-          margin="normal"
-        >
-          {currencies.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </TextField>
-        <TextField
-          id="standard-full-width"
-          label="Label"
-          style={{ margin: 8 }}
-          placeholder="Placeholder"
-          helperText="Full width!"
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-
-        <TextField
-          id="standard-bare"
-          className={classes.textField}
-          defaultValue="Bare"
-          margin="normal"
-        /> */}
+        
       </form>
     );
   }
