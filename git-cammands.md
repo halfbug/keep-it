@@ -29,6 +29,9 @@ now the active branch will be the master
 ## push local code to remote repo
 `git push -u origin master`
 
+### git add/stage all m files
+`git add . `
+
 ## git commit 
 `git add readme.md`
 `git commit -m "text changed" `
@@ -38,4 +41,11 @@ now the active branch will be the master
 
 ## git pull from remote
 `git pull`
+
+### Merge files to dev branch
+`$ git checkout dev`
+`$ git merge social-login/main`
+
+### git tagging release
+`$ git tag -a 0.1.0 -m "Implement social login. Update user schema.`
 
