@@ -49,3 +49,8 @@ now the active branch will be the master
 ### git tagging release
 `$ git tag -a 0.1.0 -m "Implement social login. Update user schema.`
 
+### tag push to origin 
+`$ git push origin [tagname]`
+Alternatively, if you want to push all tags, you can run the following command instead:
+`$ git push origin --tags`
+
