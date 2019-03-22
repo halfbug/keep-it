@@ -14,6 +14,7 @@ import FileCopy from '@material-ui/icons/FileCopy';
 
 
 
+
  class Detail extends Component {
 
  handleClick() {
@@ -76,6 +77,7 @@ import FileCopy from '@material-ui/icons/FileCopy';
     return (
       <Single>
         {optButton}
+        <span></span>
       {credential}
       </Single>
     )

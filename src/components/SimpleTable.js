@@ -98,6 +98,7 @@ class SimpleTable extends Component {
                       aria-label="Delete"
                       className={classes.fab}
                       cid={n.id}
+                      reverseSearch={this.props.reverseSearch} 
                     >
                       <DeleteIcon fontSize="small" />
                     </DeleteButton>

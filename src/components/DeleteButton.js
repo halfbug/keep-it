@@ -10,6 +10,8 @@ class DeleteButton extends Component {
         console.log(this.props);
         this.props.deleteCredential(this.props.cid);
         // this.props.history.push('/');
+        if(this.props.reverseSearch )
+        this.props.reverseSearch();
       }
   render() {
     return (

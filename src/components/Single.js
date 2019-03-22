@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography'
+import Paper from "@material-ui/core/Paper";
 
 const styles = theme => ({
   root:{
@@ -28,10 +29,10 @@ const styles = theme => ({
 
 function Single(props) {
   const { classes, children } = props;
-  console.log(children);
+  //console.log(children);
   return (
       <React.Fragment>
-    <div className={classes.root}>
+    <Paper className={classes.root}>
       <div className={classes.section1} align="left">
         <Grid container >
           <Grid item xs>
@@ -72,7 +73,7 @@ function Single(props) {
         { children[3]}
        
       </div>
-    </div>
+    </Paper>
     </React.Fragment>
   );
 }
