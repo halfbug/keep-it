@@ -47,17 +47,6 @@ class Search extends Component {
      console.log("Updated internal search results")
    }
 
-  //  componentDidUpdate(prevProps) {
-  //   // Typical usage (don't forget to compare props):
-  //   console.log(this.props.credentials.length);
-  //   console.log(prevProps.credentials.length)
-  //   if(!(this.props.credentials.length === prevProps.credentials)){
-  //   console.log('differ')
-  //   this.setState({
-  //     credentials: this.props.credentials
-  //   })
-  //   }
-  // }
 
   static getDerivedStateFromProps(props, state) {
     // Any time the current user changes,
