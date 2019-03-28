@@ -11,7 +11,7 @@ import SearchForm from '../components/SearchForm'
 class Search extends Component {
   state = {
    credentials: this.props.credentials,
-    
+    action : 'default',
 
   };
 
@@ -33,16 +33,45 @@ class Search extends Component {
 
       console.log(resultedCredentials);
       this.setState({
-       credentials: resultedCredentials
+       credentials: resultedCredentials,
+       action : "search",
       })
       
     
   }
   reverseSearch = () => {
     this.setState({
-      credentials: this.props.credentials
+      credentials: this.props.credentials,
+      action : "default",
      })
+     console.log("Updated internal search results")
    }
+
+  //  componentDidUpdate(prevProps) {
+  //   // Typical usage (don't forget to compare props):
+  //   console.log(this.props.credentials.length);
+  //   console.log(prevProps.credentials.length)
+  //   if(!(this.props.credentials.length === prevProps.credentials)){
+  //   console.log('differ')
+  //   this.setState({
+  //     credentials: this.props.credentials
+  //   })
+  //   }
+  // }
+
+  static getDerivedStateFromProps(props, state) {
+    // Any time the current user changes,
+    // Reset any parts of state that are tied to that user.
+    // In this simple example, that's just the email.
+    if ((props.credentials.length !== state.credentials.length)&& state.action === "default") {
+      return {
+       
+        credentials: props.credentials,
+      };
+    }
+    return null;
+  }
+
   render() {
     //console.log(this.props);
     const {credentials} = this.state;
