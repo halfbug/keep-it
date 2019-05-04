@@ -1,7 +1,10 @@
-## Create Git Repository
+## Create Git Repository Branch
 
 `$ git checkout -b dev master`
 it will create dev branch under master
+
+## puch branch to origin 
+git push --set-upstream origin cwritter
 
 ## list all branches
 `$ git branch`
