@@ -1,6 +1,8 @@
 ## create a new repository on the command line
-echo "# your-repo-name" >> README.md
-`git init
+
+`echo "# your-repo-name" >> README.md
+
+git init
 
 git add README.md
 
@@ -11,6 +13,7 @@ git remote add origin git@github.com:halfbug/hifz-ul-quran.git
 git push -u origin master`
 
 ## push an existing repository from the command line (mostly used)
+
 `git remote add origin git@github.com:halfbug/hifz-ul-quran.git
 git push -u origin master`
 ## import code from another repository
