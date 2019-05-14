@@ -57,3 +57,5 @@ now the active branch will be the master
 Alternatively, if you want to push all tags, you can run the following command instead:
 `$ git push origin --tags`
 
+### git tag --delete tagname
+delete the tag
