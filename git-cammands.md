@@ -49,6 +49,15 @@ now the active branch will be the master
 `$ git checkout dev`
 `$ git merge social-login/main`
 
+### Copy a folder form one branch to another
+`git branch
+  dev
+  master
+  release-without-thunk
+* with-thunk`
+
+`s:\njspro\expentra>git checkout release-without-thunk src/store`
+
 ### git tagging release
 `$ git tag -a 0.1.0 -m "Implement social login. Update user schema.`
 
