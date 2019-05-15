@@ -50,11 +50,13 @@ now the active branch will be the master
 `$ git merge social-login/main`
 
 ### Copy a folder form one branch to another
-`git branch
-  dev
-  master
-  release-without-thunk
-* with-thunk`
+`git branch`
+
+ ` master`
+ 
+ ` release-without-thunk`
+ 
+`* with-thunk`
 
 `s:\njspro\expentra>git checkout release-without-thunk src/store`
 
