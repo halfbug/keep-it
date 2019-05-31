@@ -70,3 +70,12 @@ Alternatively, if you want to push all tags, you can run the following command i
 
 ### git tag --delete tagname
 delete the tag
+
+### git add remote origin 
+`git remote add origin https://github.com/halfbug/fivr-sako.git`
+
+## change remote origin
+`git remote set-url origin https://github.com/user/repo2.git`
+
+## check current origin 
+`git remote -v`
