@@ -31,6 +31,10 @@ gives :
 `* dev`
 `  master`
 "*" represents the active branch
+## Remove Commit
+- remove previous Git commit on local.
+`git reset --hard [previous Commit SHA id here] `
+- upade remote branch `git push origin [branch Name] -f`
 
 ## Cherry-pick
 ### 1. to cherry-pick a single branch or commit named commit
