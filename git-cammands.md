@@ -32,6 +32,24 @@ gives :
 `  master`
 "*" represents the active branch
 
+## Cherry-pick
+### 1. to cherry-pick a single branch or commit named commit
+`git cherry-pick commit`
+
+### 2. to cherry-pick multiple commits
+`git cherry-pick commit1 commit2 commit3 commit4 commit5`
+
+### 3. to cherry-pick a range of commits
+- A. INCLUDING the beginning_commit
+`git cherry-pick beginning_commit~..ending_commit`
+ - OR (same as above)
+`git cherry-pick beginning_commit~1..ending_commit`
+ - OR (same as above)
+`git cherry-pick beginning_commit^..ending_commit `
+
+- B. NOT including the beginning_commit
+`git cherry-pick beginning_commit..ending_commit`
+
 ## Switch between branches
 `git checkout master`
 now the active branch will be the master
